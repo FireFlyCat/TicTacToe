@@ -26,7 +26,7 @@ public class TickTacToeController {
         return battleService.joinBattle(id);
     }
 
-    @PutMapping("/move")
+    @PutMapping(value = "/move")
     public BattleDto placeMarker(@RequestBody MoveDto move){
         return moveService.makeMove(move);
     }

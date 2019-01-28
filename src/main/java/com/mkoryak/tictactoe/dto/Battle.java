@@ -1,6 +1,5 @@
 package com.mkoryak.tictactoe.dto;
 
-import lombok.Builder;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,7 +11,7 @@ public class Battle {
     @Id
     @GeneratedValue
     private Integer battleId;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "battleId")
     private List<Field> fields;
     private String user1Id;

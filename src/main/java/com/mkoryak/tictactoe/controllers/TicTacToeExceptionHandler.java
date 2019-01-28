@@ -17,6 +17,7 @@ public class TicTacToeExceptionHandler {
         return ResponseEntity.badRequest().body(wrapMessage(e.getMessage()));
     }
 
+    @ExceptionHandler(WinException.class)
     public ResponseEntity handleException(WinException e){
         return ResponseEntity.ok().body(wrapMessage(e.getMessage()));
     }
