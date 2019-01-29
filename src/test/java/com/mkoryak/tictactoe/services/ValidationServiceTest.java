@@ -88,6 +88,18 @@ public class ValidationServiceTest {
     }
 
     @Test(expected = BattleValidationException.class)
+    public void validateMove_fieldIsFull_excep() {
+        Battle battle = fillBattle();
+        Field field = battle.getFields().get(0);
+        field.setValue("X");
+        MoveDto move = fillMove();
+        move.setUserId("user2");
+        move.setX(field.getX());
+        move.setY(field.getY());
+        subject.validateMove(move, battle);
+    }
+
+    @Test(expected = BattleValidationException.class)
     public void validateMove_secondPlayerMoving_whenFirstPlayerTurn_excep() {
         MoveDto move = fillMove();
         move.setUserId("user2");

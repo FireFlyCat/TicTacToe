@@ -13,18 +13,18 @@ import java.util.Map;
 public class TicTacToeExceptionHandler {
 
     @ExceptionHandler(BattleValidationException.class)
-    public ResponseEntity handleException(BattleValidationException e){
+    public ResponseEntity handleException(BattleValidationException e) {
         return ResponseEntity.badRequest().body(wrapMessage(e.getMessage()));
     }
 
     @ExceptionHandler(WinException.class)
-    public ResponseEntity handleException(WinException e){
+    public ResponseEntity handleException(WinException e) {
         return ResponseEntity.ok().body(wrapMessage(e.getMessage()));
     }
-    private Map<String, String> wrapMessage(String message){
+
+    private Map<String, String> wrapMessage(String message) {
         Map<String, String> map = new HashMap<>();
         map.put("message", message);
         return map;
     }
-
 }
