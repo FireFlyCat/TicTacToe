@@ -21,7 +21,7 @@ public class TickTacToeController {
         return battleService.createBattle();
     }
 
-    @GetMapping("/battle/{id}")
+    @PutMapping("/battle/{id}")
     public BattleDto joinBattle(@PathVariable("id") Integer id){
         return battleService.joinBattle(id);
     }

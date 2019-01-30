@@ -145,7 +145,7 @@ public class ValidationServiceTest {
     }
 
     @Test(expected = WinException.class)
-    public void checkPlayersWin_checkOInColumns_win() {
+    public void checkPlayersWin_checkOInColumn_win() {
         Field f1 = Field.builder().x(0).y(2).value("O").build();
         Field f2 = Field.builder().x(1).y(2).value("O").build();
         Field f3 = Field.builder().x(2).y(2).value("O").build();

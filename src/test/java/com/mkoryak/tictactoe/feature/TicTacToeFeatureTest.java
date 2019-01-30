@@ -57,7 +57,6 @@ public class TicTacToeFeatureTest extends CommonIntegrationTest {
         //second user joins a battle
         battle = joinBattleField(battle);
 
-
         //place X on center
         battle = makeMove(battle.getUser1Id(), 1, 1, battle.getBattleId());
 
@@ -100,7 +99,7 @@ public class TicTacToeFeatureTest extends CommonIntegrationTest {
     }
 
     private BattleDto joinBattleField(BattleDto battle) throws Exception {
-        String secondResult = this.mockMvc.perform(get("/api/battle/{id}", battle.getBattleId().toString()))
+        String secondResult = this.mockMvc.perform(put("/api/battle/{id}", battle.getBattleId().toString()))
                 .andExpect(status().isOk())
                 .andReturn().getResponse().getContentAsString();
         //just to have last version of battle

@@ -38,7 +38,7 @@ public class TickTacToeControllerIntegrationTest extends CommonIntegrationTest {
     public void joinBattle_hp() throws Exception {
         createBattle();
 
-        this.mockMvc.perform(get("/api/battle/1"))
+        this.mockMvc.perform(put("/api/battle/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.battleId", equalTo(1)))
                 .andExpect(jsonPath("$.user1Id", equalTo("user1")))
@@ -47,7 +47,7 @@ public class TickTacToeControllerIntegrationTest extends CommonIntegrationTest {
 
     @Test
     public void joinBattle_noBattleFieldFound() throws Exception {
-        this.mockMvc.perform(get("/api/battle/1"))
+        this.mockMvc.perform(put("/api/battle/1"))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message", equalTo("No battlefield found")));
     }
@@ -57,11 +57,11 @@ public class TickTacToeControllerIntegrationTest extends CommonIntegrationTest {
         createBattle();
 
         //first join - OK
-        this.mockMvc.perform(get("/api/battle/1"))
+        this.mockMvc.perform(put("/api/battle/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.user2Id", equalTo("user2")));
         //second join - exception
-        this.mockMvc.perform(get("/api/battle/1"))
+        this.mockMvc.perform(put("/api/battle/1"))
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("$.message", equalTo("The battlefield is full")));
     }
