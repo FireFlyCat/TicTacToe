@@ -15,7 +15,9 @@ It is a test application that has been implemented for review only.
 The port 8080 should be available.
 Local application url: http://localhost:8080/
 
-To see, how application should work, please see test `TicTacToeFeatureTest.java` with two cases of game.
+## Notes
+* The current database is in-memory H2. it has been chosen because of easy configuring and deploying 
+* To see, how application should work, please take a look to the 'feature' test `TicTacToeFeatureTest.java` with two cases of game.
 
 ## Authors
 
